@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity Tracker Sandbox</title>
+    <meta name="description" content="A sandbox environment to test the web activity tracker.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b1120;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --primary: #38bdf8;
+            --primary-hover: #0ea5e9;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+                radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            margin: 0;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 3rem;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .interactive-area {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        button {
+            background: var(--primary);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px -1px rgba(56, 189, 248, 0.3);
+        }
+
+        button:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(56, 189, 248, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+        <input type="text" id="demo-input" placeholder="Type something to trigger keydown events...">
+        
+        <div class="interactive-area">
+            <button id="primary-btn">Click Tracker</button>
+            <button id="secondary-btn" style="background: #818cf8; box-shadow: 0 4px 6px -1px rgba(129, 140, 248, 0.3);">Another Action</button>
+        </div>
+        
+        <div class="interactive-area">
+            <div class="box" id="hover-zone-1">Hover & Move Here</div>
+            <div class="box" id="hover-zone-2">Interactive Zone</div>
+        </div>
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span style="color: var(--primary); font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Hardware Review</span>
+        <h1 style="font-size: 2.2rem;">Why USB 4 is Finally Fixing the USB 3.x Naming Disaster</h1>
+        <p style="font-size: 0.95rem; margin-top: -0.5rem; margin-bottom: 2rem;">By Tech Staff • Published March 12, 2026</p>
+        
+        <p>If you've bought a cable or a hard drive anytime in the last ten years, you've likely suffered through the absolute confusing mess that was the USB 3.x naming scheme. From USB 3.0 to USB 3.1 Gen 1, all the way to the completely absurd SuperSpeed USB 20Gbps (USB 3.2 Gen 2x2), figuring out how fast a port actually was felt like needing a degree in cryptography.</p>
+
+        <p>Fortunately, the Universal Serial Bus Implementers Forum (USB-IF) seems to have finally learned its lesson. USB 4 isn't just a technical leap; it is an exercise in much-needed consumer sanity.</p>
+
+        <h3 style="color: #fff; margin-top: 2rem;">The Technical Jump: Thunderbolt Integration</h3>
+        
+        <p>At its core, USB 4 is essentially built upon Intel's Thunderbolt 3 protocol, which Intel royalty-free handed over to the USB-IF. This means that baseline USB 4 supports a minimum bandwidth of 20 Gbps, with the vast majority of consumer devices opting for the full 40 Gbps implementation. Compare this to the varying 5, 10, or 20 Gbps speeds sprinkled haphazardly throughout the USB 3.x era.</p>
+
+        <p>More importantly, USB 4 mandates support for display and data tunneling. You no longer have to guess whether the USB-C port on your new laptop supports video out, or just data, or just charging. If it is certified USB 4, it can handle multiple 4K displays out of the box natively.</p>
+
+        <h3 style="color: #fff; margin-top: 2rem;">A Simpler Naming Convention</h3>
+
+        <p>The USB-IF has abandoned the "Gen X" nomenclature for consumer-facing branding. Going forward, you won't see "USB 4 Gen 3x2". Instead, the branding focuses purely on performance. The packaging will simply read <strong>USB 20Gbps</strong>, <strong>USB 40Gbps</strong>, or the upcoming next-gen <strong>USB 80Gbps</strong>.</p>
+        
+        <p>No more "SuperSpeed+". No more decoding technical specs on the back of the box. </p>
+
+        <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--primary); padding: 1rem 1.5rem; margin: 2rem 0; border-radius: 0 8px 8px 0;">
+            <strong>Key Takeaway:</strong> USB 4 fixes both the technical fragmentation of alternative modes (like direct DisplayPort) and the catastrophic naming conventions of the USB 3 era.
+        </div>
+
+        <p>While the transition will take time—we are still seeing USB 3.2 ports on budget motherboards—the end of the spec-sheet nightmare is finally in sight. When shopping for your next premium laptop, just look for the 40Gbps logo and know that it will actually do everything you expect a modern Type-C port to do.</p>
+        
+        <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; gap: 1rem;">
+            <button id="like-btn">👍 Helpful Article</button>
+            <button id="share-btn" style="background: transparent; border: 1px solid var(--border); color: var(--text-main);">Share</button>
+        </div>
+
+        <!-- Interactive Typing Section -->
+        <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border);">
+            <h3 style="color: #fff;">Join the Discussion</h3>
+            <p style="font-size: 0.95rem;">Have thoughts on the new USB naming convention? Let us know below.</p>
+            
+            <input type="text" id="name-input" placeholder="Your Name" style="margin-bottom: 1rem;">
+            
+            <textarea id="comment-area" placeholder="Write your comment here. Type freely to test the keystroke telemetry tracker..." rows="4" style="
+                width: 100%; box-sizing: border-box; background: rgba(15, 23, 42, 0.8);
+                border: 1px solid var(--border); color: var(--text-main);
+                font-family: 'Inter', sans-serif; font-size: 1rem; padding: 1rem 1.5rem;
+                border-radius: 12px; transition: all 0.3s ease; resize: vertical;
+            " onfocus="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 0 0 3px rgba(56, 189, 248, 0.2)';" onblur="this.style.borderColor='var(--border)'; this.style.boxShadow='none';"></textarea>
+            
+            <button id="submit-btn" style="margin-top: 1rem; padding: 0.8rem 1.5rem; font-size: 0.95rem;">Post Comment</button>
+        </div>
+    </div>
+
+    <!-- Tracker script points to Python backend -->
+    <script src="tracker.js"></script>
+</body>
+</html>

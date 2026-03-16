@@ -1,0 +1,31 @@
+services:
+  tui:
+    build: ./client
+    container_name: activity-tui
+    ports:
+      - "8000:8000"
+    volumes:
+      - csv_data:/data
+    environment:
+      - CSV_DIR=/data
+      - IN_DOCKER=true
+      - RECREATOR_URL=http://localhost:5000  # accessible from the host browser
+    stdin_open: true   # keep stdin open for interactive TUI
+    tty: true          # allocate a pseudo-TTY for rich rendering
+    restart: unless-stopped
+
+  recreator:
+    build: ./recreator
+    container_name: session-recreator
+    ports:
+      - "5000:5000"
+    volumes:
+      - csv_data:/data
+    environment:
+      - CSV_DIR=/data
+    depends_on:
+      - tui
+    restart: unless-stopped
+
+volumes:
+  csv_data:          # shared between tui (writes) and recreator (reads)
